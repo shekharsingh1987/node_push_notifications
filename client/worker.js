@@ -9,6 +9,6 @@ self.addEventListener("push", e => {
 
   self.registration.showNotification(data.title, {
     body: "Notified by Traversy Media!",
-    icon: "http://image.ibb.co/frYOFd/tmlogo.png"
+    icon: "tmlogo.png"
   });
 });
