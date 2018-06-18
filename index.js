@@ -10,6 +10,8 @@ app.use(express.static(path.join(__dirname, "client")));
 
 app.use(bodyParser.json());
 
+const vapidKeys = webpush.generateVAPIDKeys();
+
 const publicVapidKey =
   "BBC9YVrnoFuYNR40pOtV2dxqf5yTS6RWF7c7Ej58rLGtMjcBAg5qbLrEQgQQ2A3XiCf_-KqivaxrrkMiVA3UEhY";
 const privateVapidKey = "Cf-CRGB_WOVGV8SW0mKU0thnCmM5buEOhtqrjRySOgU";

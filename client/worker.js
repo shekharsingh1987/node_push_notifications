@@ -4,7 +4,7 @@ self.addEventListener("push", e => {
   const data = e.data.json();
   console.log("Push Recieved...");
 
-  data.audio.play();
+  // data.audio.play();
 
 
   self.registration.showNotification(data.title, {
