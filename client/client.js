@@ -21,8 +21,6 @@ async function Register() {
     userVisibleOnly: true,
     applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
   });
-
-
   console.log("Push Registered...");
 }
 
@@ -31,14 +29,26 @@ async function Register() {
 async function send() {
   // Send Push Notification
   console.log("Sending Push...");
-  await fetch("/subscribe", {
-    method: "POST",
-    body: JSON.stringify(subscription),
-    headers: {
-      "content-type": "application/json"
-    }
-  });
+  if (subscription) {
+    await fetch("/subscribe", {
+      method: "POST",
+      body: JSON.stringify(subscription),
+      headers: {
+        "content-type": "application/json"
+      }
+    });
+  }
+  else {
+    alert("Subscription object not found");
+  }
+
   console.log("Push Sent...");
+}
+
+var Notify = function () {
+  fetch('/notify', resolve => {
+    console.log(resolve);
+  })
 }
 
 function urlBase64ToUint8Array(base64String) {

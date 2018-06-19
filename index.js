@@ -1,9 +1,56 @@
 const express = require("express");
 const webpush = require("web-push");
 const bodyParser = require("body-parser");
+
 const path = require("path");
 
+var fs = require('fs');
+var Promise = require('es6-promise').Promise;
+
 const app = express();
+
+//Helper File
+var getDataFromFile = function (path) {
+  return new Promise(function (resolve, reject) {
+    fs.readFile(path, 'utf-8', function (err, data) {
+      if (err) { reject(err) }
+
+      var arrayOfObjects = JSON.parse(data);
+      resolve(arrayOfObjects.subscriber);
+    })
+  });
+}
+
+
+//Helper File
+var setDataFromFile = function (path, object) {
+  return new Promise(function (resolve, reject) {
+    fs.readFile(path, 'utf-8', function (err, data) {
+      if (err) { reject(err) }
+
+      var arrayOfObjects = JSON.parse(data);
+      arrayOfObjects.subscriber.push(object);
+
+      fs.writeFile(path, JSON.stringify(arrayOfObjects), 'utf-8', function (err1) {
+        if (err1) { reject(err1) }
+        resolve(true);
+      })
+    })
+  });
+}
+
+//Push the notification to all subscriber
+var notifySubscriber = function (subscriber) {
+
+  // Create payload
+  const payload = JSON.stringify({ title: "Push Test" });
+
+  // Pass object into sendNotification
+  webpush
+    .sendNotification(subscriber, payload)
+    .catch(err => console.error(err));
+}
+
 
 // Set static path
 app.use(express.static(path.join(__dirname, "client")));
@@ -26,21 +73,25 @@ webpush.setVapidDetails(
 app.post("/subscribe", (req, res) => {
   // Get pushSubscription object
   const subscription = req.body;
-  console.log(subscription);
+  //console.log(subscription);
+
+  setDataFromFile('./subscriptionData.json', subscription).then(data => console.log(data), error => console.log(error));
+
 
   // Send 201 - resource created
   res.status(201).json({});
+});
 
-  // Create payload
-  const payload = JSON.stringify({ title: "Push Test" });
-
-  // Pass object into sendNotification
-  webpush
-    .sendNotification(subscription, payload)
-    .catch(err => console.error(err));
+app.get("/notify", (req, res) => {
+  getDataFromFile('./subscriptionData.json').then(data => {
+    for (var i = 0; i < data.length; i++) {
+      notifySubscriber(data[i]);
+    }
+    res.status(201).json({});
+  });
 });
 
 // const port = 8080;
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8081;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

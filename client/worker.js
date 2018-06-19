@@ -8,7 +8,7 @@ self.addEventListener("push", e => {
 
 
   self.registration.showNotification(data.title, {
-    body: "Notified by Traversy Media!",
+    body: "TextRestaurants welcomes you !",
     icon: "tmlogo.png"
   });
 });
