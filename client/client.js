@@ -1,18 +1,19 @@
 const publicVapidKey = "BBC9YVrnoFuYNR40pOtV2dxqf5yTS6RWF7c7Ej58rLGtMjcBAg5qbLrEQgQQ2A3XiCf_-KqivaxrrkMiVA3UEhY";
 
+
 var subscription = null;
 // Check for service worker
 if ("serviceWorker" in navigator) {
-  Register().catch(err => console.error(err));
+  window.addEventListener('load', () => {
+    Register().catch(err => console.error(err));
+  });
 }
 
 // Register SW, Register Push, Send Push
 async function Register() {
   // Register Service Worker
   console.log("Registering service worker...");
-  const register = await navigator.serviceWorker.register("/worker.js", {
-    scope: "/"
-  });
+  const register = await navigator.serviceWorker.register("/worker.js");
   console.log("Service Worker Registered...");
 
   // Register Push
@@ -46,9 +47,10 @@ async function send() {
 }
 
 var Notify = function () {
-  fetch('/notify', resolve => {
-    console.log(resolve);
-  })
+  fetch('/notify').then(function (response) {
+    messageNotificationSound();
+    console.log(response);
+  });
 }
 
 function urlBase64ToUint8Array(base64String) {
@@ -64,6 +66,26 @@ function urlBase64ToUint8Array(base64String) {
     outputArray[i] = rawData.charCodeAt(i);
   }
   return outputArray;
+}
+
+function messageNotificationSound() {
+  try {
+    // Fix up for prefixing
+    // window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    // context = new AudioContext();
+    // oscillatorNode = context.createOscillator();
+    // oscillatorNode.type = 'sine';
+    // oscillatorNode.frequency.value = 150;
+    // oscillatorNode.connect(context.destination);
+    // oscillatorNode.start();
+    // oscillatorNode.stop(context.currentTime + 1);
+
+    var audio = new Audio('./audio/alert.mp3');
+    audio.play();
+  }
+  catch (e) {
+    alert('Web Audio API is not supported in this browser');
+  }
 }
 
 
