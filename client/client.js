@@ -79,9 +79,13 @@ function messageNotificationSound() {
     // oscillatorNode.connect(context.destination);
     // oscillatorNode.start();
     // oscillatorNode.stop(context.currentTime + 1);
+    var isTouchDevice = function () { return 'ontouchstart' in window || 'onmsgesturechange' in window; };
+    var isDesktop = window.screenX != 0 && !isTouchDevice() ? true : false;
 
     var audio = new Audio('./audio/alert.mp3');
-    audio.play();
+    if (isDesktop) {
+      audio.play();
+    }
   }
   catch (e) {
     alert('Web Audio API is not supported in this browser');
