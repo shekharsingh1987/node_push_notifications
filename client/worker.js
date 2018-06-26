@@ -1,4 +1,5 @@
 console.log("Service Worker Loaded...");
+const swListener = new BroadcastChannel('swListener');
 
 
 const staticAssets = [
@@ -13,14 +14,27 @@ self.addEventListener("push", e => {
   const data = e.data.json();
   console.log("Push Recieved...");
 
+  // self.postMessage("bell");
+  //navigator.serviceWorker.controller.postMessage('bell');
   // data.audio.play();
-
+  swListener.postMessage('bell');
 
   self.registration.showNotification(data.title, {
     body: "TextRestaurants welcomes you !",
     icon: "tmlogo.png"
   });
 });
+
+// self.addEventListener("message", function (event) {
+//   //event.source.postMessage("Responding to " + event.data);
+//   // self.clients.matchAll().then(function (all) {
+//   //   all.forEach(function (client) {
+//   //     client.postMessage('bell');
+//   //   });
+//   // });
+// });
+
+
 
 // Install event listener
 self.addEventListener('install', async e => {

@@ -87,7 +87,7 @@ app.get("/notify", (req, res) => {
     for (var i = 0; i < data.length; i++) {
       notifySubscriber(data[i]);
     }
-    res.status(201).json({});
+    res.status(201).send("do");
   });
 });
 

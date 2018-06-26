@@ -2,12 +2,36 @@ const publicVapidKey = "BBC9YVrnoFuYNR40pOtV2dxqf5yTS6RWF7c7Ej58rLGtMjcBAg5qbLrE
 
 
 var subscription = null;
+
 // Check for service worker
 if ("serviceWorker" in navigator) {
   window.addEventListener('load', () => {
+    navigator.serviceWorker.addEventListener('message', function (event) {
+      // use `event.data`
+      if (event.data === 'bell') {
+        messageNotificationSound();
+      }
+    });
+
+    const swListener = new BroadcastChannel('swListener');
+    swListener.onmessage = function (e) {
+      // console.log('swListener Received', e.data);
+      if (e.data === 'bell') {
+        messageNotificationSound();
+      }
+    };
     Register().catch(err => console.error(err));
+
+    // if (navigator.serviceWorker.controller) {
+    //   console.log("Sending 'hi' to controller");
+    //   navigator.serviceWorker.controller.postMessage("hi");
+    // } else {
+    //   Register().catch(err => console.error(err));
+    // }
   });
 }
+
+
 
 // Register SW, Register Push, Send Push
 async function Register() {
@@ -48,7 +72,7 @@ async function send() {
 
 var Notify = function () {
   fetch('/notify').then(function (response) {
-    messageNotificationSound();
+    //messageNotificationSound();
     console.log(response);
   });
 }
@@ -70,22 +94,15 @@ function urlBase64ToUint8Array(base64String) {
 
 function messageNotificationSound() {
   try {
-    // Fix up for prefixing
-    // window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    // context = new AudioContext();
-    // oscillatorNode = context.createOscillator();
-    // oscillatorNode.type = 'sine';
-    // oscillatorNode.frequency.value = 150;
-    // oscillatorNode.connect(context.destination);
-    // oscillatorNode.start();
-    // oscillatorNode.stop(context.currentTime + 1);
     var isTouchDevice = function () { return 'ontouchstart' in window || 'onmsgesturechange' in window; };
     var isDesktop = window.screenX != 0 && !isTouchDevice() ? true : false;
 
     var audio = new Audio('./audio/alert.mp3');
-    if (isDesktop) {
-      audio.play();
-    }
+    // if (isDesktop) {
+    //   audio.play();
+    // }
+    audio.play();
+
   }
   catch (e) {
     alert('Web Audio API is not supported in this browser');
