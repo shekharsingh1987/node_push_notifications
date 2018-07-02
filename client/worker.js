@@ -6,7 +6,8 @@ const staticAssets = [
   './',
   './audio/alert.mp3',
   './images/icons/icon-72x72.png',
-  './client.js'
+  './client.js',
+  './index.js'
 ];
 
 

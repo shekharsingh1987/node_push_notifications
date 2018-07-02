@@ -1,6 +1,4 @@
 const publicVapidKey = "BBC9YVrnoFuYNR40pOtV2dxqf5yTS6RWF7c7Ej58rLGtMjcBAg5qbLrEQgQQ2A3XiCf_-KqivaxrrkMiVA3UEhY";
-
-
 var subscription = null;
 
 // Check for service worker
@@ -15,19 +13,11 @@ if ("serviceWorker" in navigator) {
 
     const swListener = new BroadcastChannel('swListener');
     swListener.onmessage = function (e) {
-      // console.log('swListener Received', e.data);
       if (e.data === 'bell') {
         messageNotificationSound();
       }
     };
     Register().catch(err => console.error(err));
-
-    // if (navigator.serviceWorker.controller) {
-    //   console.log("Sending 'hi' to controller");
-    //   navigator.serviceWorker.controller.postMessage("hi");
-    // } else {
-    //   Register().catch(err => console.error(err));
-    // }
   });
 }
 
@@ -72,8 +62,6 @@ async function send() {
 
 var Notify = function () {
   fetch('/notify').then(function (response) {
-    //messageNotificationSound();
-    console.log(response);
   });
 }
 
@@ -94,15 +82,8 @@ function urlBase64ToUint8Array(base64String) {
 
 function messageNotificationSound() {
   try {
-    var isTouchDevice = function () { return 'ontouchstart' in window || 'onmsgesturechange' in window; };
-    var isDesktop = window.screenX != 0 && !isTouchDevice() ? true : false;
-
     var audio = new Audio('./audio/alert.mp3');
-    // if (isDesktop) {
-    //   audio.play();
-    // }
     audio.play();
-
   }
   catch (e) {
     alert('Web Audio API is not supported in this browser');

@@ -1,23 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="textRestApp" lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Push Notifications Using Node</title>
+  <title>Text Restaurant</title>
   <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet" href="styles/angular-material.min.css">
+  <link rel="stylesheet" href="styles/toaster.css">
 </head>
 
-<body>
-  <h1>Push Notifications POC</h1>
+<body ng-cloak>
+  <ui-view></ui-view>
 
-  <div>
-    <button id="pushSend" onclick="send()">Subscribe</button>
-    <button id="pushSend" onclick="Notify()">Notify</button>
-  </div>
+  <script type="text/javascript" language="javascript" src="scripts/jquery-3.1.1.min.js"></script>
 
-  <script src="client.js"></script>
+  <!-- Angular Material requires Angular.js(1.6.9) Libraries -->
+  <script type="text/javascript" language="javascript" src="scripts/angular.min.js"></script>
+  <script type="text/javascript" language="javascript" src="scripts/angular-ui-router.min.js"></script>
+
+  <script type="text/javascript" language="javascript" src="scripts/angular-animate.min.js"></script>
+  <script type="text/javascript" language="javascript" src="scripts/angular-aria.min.js"></script>
+  <script type="text/javascript" language="javascript" src="scripts/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script type="text/javascript" language="javascript" src="scripts/angular-material.min.js"></script>
+
+
+  <!-- Latest compiled JavaScript -->
+  <script type="text/javascript" language="javascript" src="scripts/toaster.js"></script>
+
+  <script type="text/javascript" language="javascript" src="client.js"></script>
+  <script type="text/javascript" language="javascript" src="index.js"></script>
+
+  <script type="text/javascript" language="javascript" src="views/home.js"></script>
+  <script type="text/javascript" language="javascript" src="views/login.js"></script>
+
+
 </body>
 
 </html>
