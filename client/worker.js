@@ -6,8 +6,25 @@ const staticAssets = [
   './',
   './audio/alert.mp3',
   './images/icons/icon-72x72.png',
+  './images/icons/icon-96x96.png',
+  './images/icons/icon-128x128.png',
+  './images/icons/icon-144x144.png',
+  './images/icons/icon-152x152.png',
+  './images/icons/icon-192x192.png',
+  './images/icons/icon-512x512.png',
+  './images/icons/icon-384x384.png',
   './client.js',
-  './index.js'
+  './index.js',
+  './scripts/angular-animate.min.js',
+  './scripts/angular-aria.min.js',
+  './scripts/angular-material.min.js',
+  './scripts/angular-messages.min.js',
+  './scripts/angular-ui-router.min.js',
+  './scripts/angular.min.js',
+  './scripts/jquery-3.1.1.min.js',
+  './scripts/toaster.js',
+  './styles/angular-material.min.css',
+  './styles/toaster.css'
 ];
 
 
