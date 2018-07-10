@@ -1,6 +1,165 @@
-<h1>Push Notifications POC</h1>
+<!-- <h1>Push Notifications POC</h1>
 
 <div>
     <button id="pushSend" onclick="send()">Subscribe</button>
     <button id="pushSend" onclick="Notify()">Notify</button>
-</div>
+</div> -->
+
+
+
+<div flex layout-padding layout="row">
+    <div flex="20" class="PadT0">
+        <div class="contactList">
+            <div layout="row" layout-align="space-between center">
+                <h4 class="color686868 m5">Customer</h4>
+                <img src="images/plus.svg" class="size24" />
+            </div>
+            <div class="searchboxDiv">
+                <input type="text" placeholder="Search here" />
+            </div>
+            <h4 class="ContactCapitalize m10">A</h4>
+
+            <div layout-gt-sm="row" layout="column">
+
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="names in contacts">
+                        <div class="md-list-item-text" layout="column">
+                            <md-button class="md-raised text-left boxShadowNon">{{ names.name }}</md-button>
+                        </div>
+                    </md-list-item>
+
+                </md-list>
+            </div>
+
+
+        </div>
+    </div>
+    <div layout="column" flex="80" class="PadT0">
+        <h4 class="mainHedding">Barry allen
+            <span>(251 251 2552)</span>
+        </h4>
+        <div layout="row" flex="100">
+            <div flex="35" layout-padding class="PadT0">
+                <div class="chatBoxDiv PadT0">
+                    <div class="chatInnerDIv PadT0">
+                        <div class="talk-bubble tri-right  round btm-left-in bg-blue">
+                            <div class="talktext">
+                                <p>Now we add a border and it looks like a comic. Uses .border .round and .btm-left-in</p>
+                            </div>
+                        </div>
+                        <div class="talk-bubble tri-right border round btm-right-in bg-gray">
+                            <div class="talktext">
+                                <p>Now flipped the other way and square. Uses .border and .btm-right-in</p>
+                            </div>
+                        </div>
+                        <div class="talk-bubble tri-right round btm-left-in bg-blue">
+                            <div class="talktext">
+                                <p>The new standard incorporates features like video playback and drag-and-drop that have been
+                                    previously dependent on .btm-left-in</p>
+                            </div>
+                        </div>
+                        <div class="talk-bubble tri-right border round btm-right-in bg-gray">
+                            <div class="talktext">
+                                <p>Now flipped the other way and square. Uses .border and .btm-right-in</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chatInp">
+                        <p class="text-center m5">Message</p>
+                        <textarea></textarea>
+                    </div>
+                    <div class="subBtn">
+                        <md-button class="md-primary">Send</md-button>
+                    </div>
+                </div>
+            </div>
+            <div flex="65" class="" layout-padding>
+                <div layout="row">
+                    <div flex="40">
+                        <div class="priceBox">
+                            <h3>$ 25.863</h3>
+                        </div>
+                        <div layout="row" layout-align="center center" class="pickupswitch">
+
+                            <span class="padT6"> Pickup </span>
+                            <md-switch class="md-primary marB0 marT0" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">Delery
+                            </md-switch>
+
+
+                        </div>
+                        <div layout="row" layout-align="center center" class="pickupswitch">
+                            <span> Cash </span>
+                            <md-switch class="md-primary marT0 marB0" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">Credit
+                            </md-switch>
+                        </div>
+                        <div layout="row" flex="100" layout-align="center center" class="taxBtn">
+                            <md-button class="md-raised">TAX</md-button>
+                        </div>
+
+                    </div>
+                    <div flex="60">
+                        <div layout="row" flex="100" class=" numBtns" layout-align="space-around center" layout-wrap>
+                            <md-button flex="25">1</md-button>
+                            <md-button flex="25">2</md-button>
+                            <md-button flex="25">3</md-button>
+                            <md-button flex="25">4</md-button>
+                            <md-button flex="25">5</md-button>
+                            <md-button flex="25">6</md-button>
+                            <md-button flex="25">7</md-button>
+                            <md-button flex="25">8</md-button>
+                            <md-button flex="25">9</md-button>
+                            <md-button flex="25">+</md-button>
+                            <md-button flex="25">0</md-button>
+                            <md-button flex="25">*</md-button>
+                        </div>
+                    </div>
+                </div>
+                <div layout="column">
+                    <h5 class="text-center m0 p0 font-bold">ETA</h5>
+                    <div layout="row" layout-align="space-around center" class="timeDiv">
+                        <span>2m</span>
+                        <span>5m</span>
+                        <span>10m</span>
+                        <span>20m</span>
+                        <span>30m</span>
+                        <span>40m</span>
+                        <span>1hr</span>
+                        <span>2hr</span>
+                    </div>
+                    <button class="sendBtn">Send Confirmation</button>
+                </div>
+                <div layout="column" class="quicktest">
+                    <h2>Quick Texts</h2>
+                    <div layout="row" layout-wrap layout-align="space-around center" class="grDiv">
+                        <div flex="30">Greetings</div>
+                        <div flex="30">How can i help</div>
+                        <div flex="30">Pu or Del</div>
+                        <div flex="30">Name ?</div>
+                        <div flex="30">Address</div>
+                        <div flex="30"> Thank you</div>
+
+                    </div>
+                    <div ng-show="IsVisible" class="moreGR">
+                        <div layout="row" layout-wrap layout-align="space-around center" class="grDiv">
+                            <div flex="30">Greetings</div>
+                            <div flex="30">How can i help</div>
+                            <div flex="30">Pu or Del</div>
+                            <div flex="30">Name ?</div>
+                            <div flex="30">Address</div>
+                            <div flex="30"> Thank you</div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="downArrow" flex="100">
+                    <input type="button" class="moreBtn" value="More" ng-click="ShowHide()" />
+
+                    <div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

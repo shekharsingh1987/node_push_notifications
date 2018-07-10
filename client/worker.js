@@ -24,7 +24,8 @@ const staticAssets = [
   './scripts/jquery-3.1.1.min.js',
   './scripts/toaster.js',
   './styles/angular-material.min.css',
-  './styles/toaster.css'
+  './styles/toaster.css',
+  './styles/main.css'
 ];
 
 

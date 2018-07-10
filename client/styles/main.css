@@ -1,0 +1,380 @@
+
+.m0{
+    margin: 0px;
+}
+.p0{
+    padding: 0px;
+}
+.m5{
+    margin: 5px;
+}
+.PadT0{
+    padding-top:0px;
+}
+.p5{
+    padding: 5px;
+}
+.m10{
+    margin: 10px;
+}
+.size24{
+    width: 20px;
+    height: 20px;
+}
+.color686868{
+    color: #686868;
+}
+md-list{
+    padding-top: 0px;
+}
+.font-normal{
+    font-weight: normal;
+}
+.contactList{
+    padding: 5px;
+    max-height: 600px;
+   overflow-y: auto;
+}
+.searchboxDiv{
+    padding:8px 10px;
+    background: #b9b8c0;
+
+}
+.searchboxDiv input{
+    padding: 8px;
+width: 92%;
+border-radius: 5px;
+border:none;
+}
+.ContactCapitalize{
+font-size: 15px;
+color: #2d85e6;
+
+}
+md-list-item.md-3-line, md-list-item.md-3-line>.md-no-style{
+    border-bottom:1px solid #d8d8d8;
+    padding: 0px;
+    min-height: 15px !important;
+}
+.md-list-item-text .md-button{
+margin: 0px;
+padding: 5px 5px;
+}
+.chatBoxDiv{
+
+}
+.chatInnerDIv{
+    max-height: 375px;
+    overflow-y: auto;
+    padding: 0px  10px 10px 10px;
+}
+/* CSS talk bubble */
+.talk-bubble {
+	margin: 20px 0px;
+  display: inline-block;
+  position: relative;
+	width: 99%;
+	height: auto;
+	background-color: lightyellow;
+}
+.border{
+  border: 1px solid #666;
+}
+.round{
+  border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+
+}
+.bg-blue{
+    background: #2d85e6;
+    color: #fff;
+}
+.bg-gray{
+    background: #7f7f7f;
+    color: #fff;
+}
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 36px;
+    right: auto;
+    top: auto;
+	bottom: -25px;
+	border:12px solid;
+	border-color: #2d85e6 transparent transparent #2d85e6;
+}
+.tri-right.btm-left-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 38px;
+  right: auto;
+  top: auto;
+	bottom: -20px;
+	border: 10px solid;
+	border-color:#2d85e6 transparent transparent #2d85e6;
+}
+
+/*Right triangle, placed bottom right side slightly in*/
+.tri-right.border.btm-right-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: 36px;
+	bottom: -25px;
+	border: 12px solid;
+	border-color: #7f7f7f #7f7f7f transparent transparent;
+}
+.tri-right.btm-right-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: 38px;
+	bottom: -20px;
+	border: 12px solid;
+	border-color: #7f7f7f #7f7f7f transparent transparent;
+}
+
+/* talk bubble contents */
+.talktext{
+  padding: 1em;
+	text-align: left;
+  line-height: 1.3em;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
+.chatInp{
+padding: 10px;
+}
+.chatInp textarea{
+    width: 100%;
+    padding :10px;
+  height:100px;
+  background: #d9d9d9;
+  border:none;
+  font-size: 12px;
+
+}
+.text-center{
+    text-align: center;
+}
+.mainHedding{
+    text-align: center;
+    margin: 5px 5px 0px 5px;
+    color: #686868;
+}
+.priceBox{    text-align: center;
+    background: #53d46d;
+    height: 100px;
+}
+.priceBox h3{
+    vertical-align: middle;
+    display: block;
+    padding-top: 14%;
+    margin-top: 0px;
+    color:#fff;
+
+}
+.pickupswitch{
+    text-transform: uppercase;
+    padding: 10px 0px;
+}
+.pickupswitch span{
+margin-right:10px;
+}
+.taxBtn .md-button{
+width: 150px !important;
+background: #efefef;
+color:#3a7bda;
+
+
+}
+
+  .numBtns{
+      text-align: center;
+
+  }
+  .numBtns .md-button{
+      padding: 5px 10px;
+      color:#2d85e6;
+      font-weight: bold;
+     margin-bottom: 5px;
+     background: #efefef;
+  }
+  .font-bold{
+      font-weight: bold;
+  
+    }
+    .timeDiv{
+        padding: 10px;
+        width: 80%;
+        margin: 5px auto;
+    }
+  .timeDiv span{
+ padding: 5px;
+ cursor: pointer;
+background: #efefef;
+font-size: 14px;
+text-align: center;
+min-width: 45px;
+  }
+  .sendBtn{
+      width: 75%;
+padding: 10px;
+background: #efefef;
+color:#2d85e6;
+border:none;
+margin: 5px auto;
+  }
+  .quicktest h2{
+ text-align: center;
+margin:0px 0px 10px 0px;
+  }
+  .grDiv div{
+ border: 1px solid #2a538b;
+ text-align: center;
+ padding: 15px 10px;
+ margin-bottom: 5px;
+ background: #4674c1;
+border-radius: 5px;
+color:#fff;
+
+  }
+  .downArrow{
+  }
+  .downArrow img{
+      width: 75px;
+margin: 0px auto;
+display: block;
+cursor: pointer;
+  }
+  .marT0{
+  margin-top:0px;
+  }
+  .padT6{
+  padding-top:6px;
+  }
+  .marB0{
+  margin-bottom:0px;}
+  .text-left{
+      text-align: left;
+
+  }
+  .boxShadowNon{
+      box-shadow: none !important;
+  }
+  .subBtn .md-button{
+width: 99%;
+margin: 3px auto;
+background: #247ce2;
+display: block;
+color: #fff;
+font-weight: bold;
+  }
+  .subBtn .md-button:hover{
+background: #116cd4;
+
+  }
+.moreBtn{
+    background:#116cd4;
+    margin: 0px auto;
+    display: block;
+    border: none;
+    padding: 8px 25px;
+    color: #fff;
+    border-radius: 5px;
+
+}
+
+.final {
+    color: black;
+    padding-right: 3px;
+}
+
+.interim {
+    color: gray;
+}
+
+.infoMessage {
+    font-size: 14px;
+    text-align: center;
+    color: #777;
+}
+
+.right {
+    float: right;
+}
+
+.sidebyside {
+    display: inline-block;
+    width: 45%;
+    min-height: 40px;
+    text-align: left;
+    vertical-align: top;
+}
+
+#results {
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #ddd;
+    padding: 0px;
+    text-align: left;
+    height: 75px;
+    overflow-y: auto;
+    margin-left:0px;
+}
+
+.recordingButton {
+    height: 75px;
+    width: 85px;
+    margin-right: 0px;
+}
+
+
+/* Home page styling*/
+.header{
+    text-align: center;
+    height: 150px;
+}
+.message{
+    text-align: center;
+}
+.resistanceValue{
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+.glyphicon{color:#fff;}
+.panel{margin-bottom: 0px;}
+.panel-body{background-color:#FFF; border:1px solid#CCC;}
+.top-bar {background: #67b0d1; color: white; padding: 10px; position: relative; overflow: hidden; padding-right:5px;}
+.box-position{position: fixed;bottom: 0; width: 100%;}
+#messagePop{
+       
+    margin-right: 0px;
+    margin-left: 185px;
+    
+    padding-right: 6px;
+    padding-left: 15px;
+}
+
+.md-dialog-content{
+    max-height: 900px;
+}
+.loginBox {
+    max-width:  75%;
+    width: 350px
+}
